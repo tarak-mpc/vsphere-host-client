@@ -3,7 +3,7 @@
 run_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # get ip locally
-ip="$(ifconfig|grep inet|head -n1|awk {'print $2'})"
+ip="$(ifconfig eth0 | grep 'inet addr' | cut -d: -f2 | awk '{print $1}')"
 
 # write out index.html
 python $run_dir/bin/setip.py
