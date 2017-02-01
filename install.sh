@@ -15,21 +15,7 @@ dependencies()
 
         # define dependencies
         pkglist="pigz pv tar wget curl"
-
-        # install pv because we need it!
-        echo -e "[\e[36mESXi\e[0m] installing some dependencies"
-        /usr/bin/yum install -y epel-release > /dev/null 2>&1
-        /usr/bin/yum install -y pv > /dev/null 2>&1
-
-        # install deps
-        echo -e "[\e[32mESXi\e[0m] checking for additional install dependencies"
-        for package in $pkglist; do
-                if [[ $(yum list installed|grep "$package[.]") = "" ]]; then
-                        echo -e "[\e[32mESXi\e[0m] ${package}: missing... installing"
-                        /usr/bin/yum install -y $package 2>&1|pv > /dev/null
-                        echo -e "[\e[32mESXi\e[0m] ${package}: install complete"
-                fi
-        done
+        sudo apt-get install $pkglist
 }
 
 install_java()
@@ -145,7 +131,7 @@ echo -e "\n[\e[32mESXi\e[0m] installing ESXi Web Client from @linuxcoding.org\n"
 # install dependencies
 dependencies
 # install java
-install_java
+# install_java
 # install esxi client
 install_esxiclient
 # start the client for the first time
