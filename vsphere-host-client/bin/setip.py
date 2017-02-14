@@ -18,7 +18,7 @@ def create_redirection_page(ip=None):
     if (ip):
         return HTML_PAGE % {'addr': ip}
     else:
-        ip = get_my_ip('eno16777736')
+        ip = get_my_ip('eth0')
         return HTML_PAGE % {'addr': ip}
 
 def get_my_ip(ifname):
