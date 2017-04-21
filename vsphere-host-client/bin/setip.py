@@ -1,6 +1,6 @@
 import ftplib, socket, fcntl, struct
 
-HTML_FILE = "/opt/vsphere-host-client/webapps/ROOT/index.html"
+HTML_FILE = "webapps/ROOT/index.html"
 
 HTML_PAGE = """<html>
 

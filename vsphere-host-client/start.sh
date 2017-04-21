@@ -3,7 +3,7 @@
 run_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # get ip locally
-ip="$(ifconfig eth0 | grep 'inet addr' | cut -d: -f2 | awk '{print $1}')"
+ip="$(hostname -i)"
 
 # write out index.html
 python $run_dir/bin/setip.py
@@ -22,3 +22,4 @@ echo -e "\n[\e[36mESXi\e[0m] \e[4mvSphere Host Client\e[0m"
 echo -e "[\e[32mESXi\e[0m] running at: http://${ip}:8080/host-client/"
 
 # done
+bash
